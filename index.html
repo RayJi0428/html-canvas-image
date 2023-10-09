@@ -1,97 +1,112 @@
-<!DOCTYPE HTML>
-<!--
-	Paradigm Shift by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<!DOCTYPE html>
 
 <head>
-    <title>Paradigm Shift by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        body {
+            margin: 0px 0px;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        img {
+            display: none;
+        }
+
+        .image-container {
+            width: 100%;
+            /* 設定容器的寬度 */
+            height: 50vh;
+            /* 設定容器的高度 */
+            overflow: hidden;
+            /* 隱藏超出容器的部分，以確保圖片不會溢出容器 */
+            position: relative;
+            /* 設定容器的位置為相對定位，以便對齊圖片 */
+        }
+
+        canvas {
+            width: 100%;
+            /* 讓圖片寬度自適應容器 */
+            height: auto;
+            /* 讓圖片高度等比例縮放 */
+            position: absolute;
+            /* 設定圖片的位置為絕對定位 */
+            top: 0;
+            /* 設定圖片距離容器頂部的距離為0 */
+            left: 0;
+            /* 設定圖片距離容器左側的距離為0 */
+        }
+
+        button {
+            margin: 5px 5px;
+            width: 30%;
+            height: 10%;
+            font-size: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border: 0px;
+            font-size: 3rem;
+        }
+
+        input {
+            box-sizing: border-box;
+            size: 30rem;
+        }
+
+        .ckbutton_checkbox,
+        .rdobutton_radio {
+            width: 5rem;
+            height: 5rem;
+        }
+    </style>
 </head>
 
-<body class="is-preload">
-
-    <!-- Wrapper -->
-    <div id="wrapper">
-
-        <!-- Intro -->
-        <section class="intro">
-            <header>
+<body>
+    <table>
+        <!-- 列1 -->
+        <tr>
+            <td colspan="2" style="background-color:#FFA500;">
                 <h1>圖片製作</h1>
-                <ul class="actions">
-                    <li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
-                </ul>
-            </header>
-            <div class="content">
-                <span class="image fill" data-position="center"><img src="images/pic01.png" alt="" /></span>
-            </div>
-        </section>
-        <!-- Section -->
-        <section>
-            <header>
-                <h2>自訂調整</h2>
-            </header>
-            <div class="content">
-                <p><strong>asd</strong> sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac
-                    varius enim lorem ullamcorper dolore.</p>
-                <ul class="actions">
-                    <li>
-                        <input id="afterCheckBox" type="checkbox" />
-                        <label for="afterCheckBox">醫療保障</label>
-                    </li>
-                    <!-- <li><a href="#" class="button primary large">Get Started</a></li> -->
-                    <!-- <li><a href="#" class="button large">Learn More</a></li> -->
-                </ul>
-            </div>
-        </section>
+            </td>
+        </tr>
+        <!-- 列2 -->
+        <tr>
+            <!-- 欄1 -->
+            <td style="background-color:#FFD700;width:30%;">
+                <div class="ckbutton">
+                    <input type="checkbox" class="ckbutton_checkbox" id="ckbtn_0" onclick="refresh()">
+                    <label class="ckbutton_label" for="ckbutton_id">寶劍</label>
+                </div> <br>
+                <div class="ckbutton">
+                    <input type="checkbox" class="ckbutton_checkbox" id="ckbtn_1" onclick="refresh()">
+                    <label class="ckbutton_label" for="ckbutton_id2">LOGO</label>
+                </div> <br>
+            </td>
+            <!-- 欄2 -->
+            <td style="background-color:#eeeeee;">
+                <div class="image-container">
+                    <canvas id='myCanvas'></canvas>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="background-color:#FFA500;text-align:center;">
+                <button id="saveButton">保存為圖片</button>
+            </td>
 
 
-        <!-- Section -->
-        <section>
-            <header>
-                <h2>Get in touch</h2>
-            </header>
-            <div class="content">
-                <p><strong>Auctor commodo</strong> interdum et malesuada fames ac ante ipsum primis in faucibus.
-                    Pellentesque venenatis dolor imperdiet dolor mattis sagittis.</p>
-                <form>
-                    <div class="fields">
-                        <div class="field half">
-                            <input type="text" name="name" id="name" placeholder="Name" />
-                        </div>
-                        <div class="field half">
-                            <input type="email" name="email" id="email" placeholder="Email" />
-                        </div>
-                        <div class="field">
-                            <textarea name="message" id="message" placeholder="Message" rows="7"></textarea>
-                        </div>
-                    </div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Send Message" onclick='test()' class="button primary" /></li>
-                    </ul>
-                </form>
-            </div>
-        </section>
+        </tr>
+    </table>
+
+    <div>
+        <img id="bk" /><!--底圖-->
+        <img id="img_0" src="images/opt0.png" />
+        <img id="img_1" src="images/opt1.png" />
     </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="main.js"></script>
     <script>
-        function test() {
-            window.alert("ASD")
-        }
+        init('images/bk.png');
     </script>
 </body>
-
-</html>
